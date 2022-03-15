@@ -1,15 +1,22 @@
 function Bench(benchList, onClickCard) {
-  const currentBench = benchList | []
   
-  return (
+  if(benchList.length > 0){
+    return (
+      <ul>
+        {benchList.map(function(cardEle) {
+            <li><button onClick={onClickCard}>{cardEle}</button></li>
+          }
+        )}
+      </ul>
+      
+    );
+  }
+
+  return(
     <ul>
-      {/* {currentBench.map(function(cardEle) {
-          <li><button onClick={onClickCard}>{cardEle}</button></li>
-        }
-      )} */}
+      <li>empty</li>
     </ul>
-    
-  );
+  )
 }
 
 export default Bench;
