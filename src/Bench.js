@@ -1,11 +1,11 @@
-function Bench(benchList, onClickCard) {
-  
-  if(benchList.length > 0){
+const Bench = ({benchList, onClickCard}) => {
+  console.log(benchList)
+  if (benchList.length > 0){
     return (
       <ul>
-        {benchList.map(function(cardEle) {
-            <li><button onClick={onClickCard}>{cardEle}</button></li>
-          }
+        {benchList.map(function (cardEle, idx) {
+          <li key={idx} ><button onClick={onClickCard}>{cardEle}</button></li>
+        }
         )}
       </ul>
       
@@ -14,7 +14,11 @@ function Bench(benchList, onClickCard) {
 
   return(
     <ul>
-      <li>empty</li>
+      {benchList.map(function (cardEle, idx) {
+        <li key={idx} ><button onClick={onClickCard}>{cardEle}</button></li>
+      }
+      )}
+      <li key='empty'>empty</li>
     </ul>
   )
 }

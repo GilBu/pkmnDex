@@ -1,16 +1,17 @@
 
 import Card from './Card';
-function DealButton(benchList, setBenchList, onCardClick) {
+const DealButton = ({benchList, handleDealClick, onCardClick}) => {
 
   const onClickDeal = () => {
     for(let i=0; i < 5; i++){
       const randNum = Math.random(500)
       const newCard = <Card face={false} id={randNum} onCardClick={onCardClick}></Card>
       const currentBench = benchList;
+      console.log(currentBench)
       currentBench.push(newCard);
-      setBenchList(currentBench);
+      handleDealClick(currentBench);
     }
-    
+    console.log(benchList)
 
   }
   return (
